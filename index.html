@@ -1,0 +1,1194 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For My Love</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #8b3f58;
+
+      /* Overall background picture */
+      background:
+        linear-gradient(rgba(255, 241, 246, 0.75), rgba(255, 241, 246, 0.75)),
+        url("background.jpg");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .page {
+      width: 90%;
+      max-width: 1100px;
+      margin: 25px auto;
+      border: 3px solid #d77f99;
+      border-radius: 25px;
+      padding: 20px;
+      background: rgba(255, 246, 250, 0.88);
+      backdrop-filter: blur(3px);
+    }
+
+    .hero {
+      background:
+        linear-gradient(rgba(223, 134, 160, 0.85), rgba(223, 134, 160, 0.85)),
+        url("background.jpg");
+      background-size: cover;
+      background-position: center;
+      border-radius: 25px;
+      padding: 30px;
+      color: white;
+      min-height: 90vh;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      background: #ffe6ef;
+      padding: 15px;
+      border-radius: 30px;
+      width: fit-content;
+      margin-bottom: 40px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #9b4660;
+      font-weight: bold;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 60px;
+      line-height: 1.1;
+      margin: 0;
+      color: white;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 45px;
+      border-radius: 15px;
+      background: white;
+      color: #d77f99;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    section {
+      margin-top: 45px;
+    }
+
+    /* Password/date page */
+    .password-page {
+      min-height: 90vh;
+      background:
+        linear-gradient(rgba(223, 134, 160, 0.85), rgba(246, 182, 200, 0.85)),
+        url("background.jpg");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      border-radius: 25px;
+      padding: 40px;
+      text-align: center;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .password-box {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(255, 241, 246, 0.95);
+      color: #8b3f58;
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .password-box h2 {
+      font-family: Georgia, serif;
+      font-size: 42px;
+      color: #d77f99;
+      margin-top: 0;
+    }
+
+    .password-box input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #d77f99;
+      border-radius: 15px;
+      background: white;
+      margin: 15px 0;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .pink-button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 15px;
+      background: #d77f99;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    #wrongMessage {
+      color: #c0395d;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .love-page {
+      display: none;
+    }
+
+    .two-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(223, 134, 160, 0.95);
+      color: white;
+      padding: 30px;
+      border-radius: 25px;
+    }
+
+    .card h2,
+    .center-title h2,
+    .contact h2,
+    .faq h2 {
+      font-family: Georgia, serif;
+      font-size: 45px;
+      margin-top: 0;
+    }
+
+    .center-title {
+      text-align: center;
+      background: rgba(223, 134, 160, 0.95);
+      color: white;
+      padding: 40px;
+      border-radius: 25px;
+    }
+
+    .reasons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .reason {
+      background: rgba(255, 241, 246, 0.95);
+      border: 2px solid #d77f99;
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .reason img {
+      height: 180px;
+    }
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .memory-grid img {
+      height: 180px;
+    }
+
+    .birthday {
+      background: rgba(223, 134, 160, 0.95);
+      color: white;
+      border-radius: 25px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .birthday h2 {
+      font-family: Georgia, serif;
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .love-question {
+      background: rgba(223, 134, 160, 0.95);
+      color: white;
+      border-radius: 25px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .love-question h2 {
+      font-family: Georgia, serif;
+      font-size: 45px;
+    }
+
+    .love-question button {
+      padding: 15px 40px;
+      margin: 10px;
+      border: none;
+      border-radius: 20px;
+      background: white;
+      color: #d77f99;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .letter {
+      background: rgba(255, 241, 246, 0.95);
+      padding: 30px;
+      border-radius: 20px;
+      line-height: 1.8;
+      font-size: 18px;
+      color: #8b3f58;
+      border: 2px solid #d77f99;
+    }
+
+    .contact {
+      background: rgba(223, 134, 160, 0.95);
+      padding: 35px;
+      border-radius: 25px;
+      color: white;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: 2px solid #d77f99;
+      border-radius: 15px;
+      background: #fff6fa;
+    }
+
+    .faq {
+      padding: 30px;
+      background: rgba(255, 241, 246, 0.95);
+      border-radius: 25px;
+      border: 2px solid #d77f99;
+    }
+
+    .question {
+      border-bottom: 1px solid #d77f99;
+      padding: 15px 0;
+      font-weight: bold;
+    }
+
+   /* Animated footer style */
+.animated-footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  background: linear-gradient(135deg, #df86a0, #f7b4c8, #df86a0);
+  color: white;
+  padding: 50px 25px;
+  border-radius: 25px;
+  text-align: center;
+  animation: footerGlow 3s ease-in-out infinite alternate;
+}
+
+.animated-footer h2 {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  margin: 15px 0;
+  animation: fadeUp 1.5s ease;
+}
+
+.animated-footer p {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 15px auto;
+  animation: fadeUp 2s ease;
+}
+
+.animated-footer h3 {
+  font-family: Georgia, serif;
+  font-size: 35px;
+  margin-top: 25px;
+  animation: heartbeat 1.5s infinite;
+}
+
+.heart-row span {
+  display: inline-block;
+  font-size: 28px;
+  margin: 0 8px;
+  animation: bounceHeart 1.5s infinite;
+}
+
+.heart-row span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.heart-row span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.heart-row span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.heart-row span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.floating-hearts span {
+  position: absolute;
+  bottom: -30px;
+  font-size: 25px;
+  opacity: 0.7;
+  animation: floatHeart 6s linear infinite;
+}
+
+.floating-hearts span:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+  left: 30%;
+  animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(3) {
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(4) {
+  left: 70%;
+  animation-delay: 3s;
+}
+
+.floating-hearts span:nth-child(5) {
+  left: 90%;
+  animation-delay: 4s;
+}
+
+@keyframes footerGlow {
+  from {
+    box-shadow: 0 0 15px rgba(215, 127, 153, 0.4);
+  }
+
+  to {
+    box-shadow: 0 0 35px rgba(215, 127, 153, 0.9);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.08);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceHeart {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-250px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+    @media (max-width: 768px) {
+      .hero-content,
+      .two-box,
+      .contact-box,
+      .reasons {
+        grid-template-columns: 1fr;
+      }
+
+      .memory-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .password-box h2,
+      .card h2,
+      .center-title h2,
+      .contact h2,
+      .faq h2 {
+        font-size: 35px;
+      }
+
+      .birthday h2 {
+        font-size: 42px;
+      }
+    }
+
+/* ===== BEAUTIFUL ANIMATIONS WITHOUT HEARTS ===== */
+
+/* Full website soft fade */
+body {
+  animation: pageFade 1.2s ease-in;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Soft sparkle background */
+.sparkle-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.sparkle-background span {
+  position: absolute;
+  bottom: -80px;
+  width: 18px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 190, 210, 0.9);
+  animation: floatSparkle 9s linear infinite;
+}
+
+.sparkle-background span:nth-child(1) {
+  left: 8%;
+  width: 14px;
+  height: 14px;
+  animation-delay: 0s;
+}
+
+.sparkle-background span:nth-child(2) {
+  left: 25%;
+  width: 22px;
+  height: 22px;
+  animation-delay: 2s;
+}
+
+.sparkle-background span:nth-child(3) {
+  left: 43%;
+  width: 12px;
+  height: 12px;
+  animation-delay: 4s;
+}
+
+.sparkle-background span:nth-child(4) {
+  left: 60%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 1s;
+}
+
+.sparkle-background span:nth-child(5) {
+  left: 78%;
+  width: 16px;
+  height: 16px;
+  animation-delay: 3s;
+}
+
+.sparkle-background span:nth-child(6) {
+  left: 92%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 5s;
+}
+
+@keyframes floatSparkle {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-110vh) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* First page smooth entrance */
+.hero {
+  animation: heroSlide 1.3s ease;
+}
+
+@keyframes heroSlide {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Beautiful glowing title */
+h1 {
+  animation: titleGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 0 5px white;
+    transform: scale(1);
+  }
+
+  to {
+    text-shadow: 0 0 25px white;
+    transform: scale(1.03);
+  }
+}
+
+/* Navigation animation */
+.nav {
+  animation: navDrop 1.2s ease;
+}
+
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button beautiful glow */
+.button,
+.pink-button,
+.love-question button {
+  transition: 0.3s ease;
+  animation: buttonGlow 2s infinite;
+}
+
+.button:hover,
+.pink-button:hover,
+.love-question button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(215, 127, 153, 0.7);
+}
+
+@keyframes buttonGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+  }
+
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Photo soft zoom */
+img {
+  transition: 0.5s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(139, 63, 88, 0.35);
+}
+
+/* Password box pop animation */
+.password-box {
+  animation: popIn 1s ease;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Love page fade after correct date */
+.love-page {
+  animation: fadeUp 1.3s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cards and sections animation */
+.card,
+.reason,
+.center-title,
+.birthday,
+.love-question,
+.letter,
+.contact,
+.faq {
+  animation: sectionAppear 1.2s ease;
+  transition: 0.4s ease;
+}
+
+.card:hover,
+.reason:hover,
+.center-title:hover,
+.birthday:hover,
+.love-question:hover,
+.letter:hover,
+.contact:hover,
+.faq:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(215, 127, 153, 0.45);
+}
+
+@keyframes sectionAppear {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Memory photos appear beautifully */
+.memory-grid img {
+  animation: photoPop 1.2s ease;
+}
+
+.memory-grid img:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.memory-grid img:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.memory-grid img:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.memory-grid img:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.memory-grid img:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.memory-grid img:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.memory-grid img:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.memory-grid img:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+@keyframes photoPop {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Birthday section glow */
+.birthday {
+  animation: birthdayGlow 2.5s infinite alternate;
+}
+
+@keyframes birthdayGlow {
+  from {
+    box-shadow: 0 0 10px rgba(223, 134, 160, 0.5);
+  }
+
+  to {
+    box-shadow: 0 0 35px rgba(223, 134, 160, 1);
+  }
+}
+
+/* Letter opening effect */
+.letter {
+  animation: letterOpen 1.4s ease;
+}
+
+@keyframes letterOpen {
+  from {
+    opacity: 0;
+    transform: rotateX(75deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+/* Footer glow */
+footer {
+  animation: footerGlow 2.5s infinite alternate;
+}
+
+@keyframes footerGlow {
+  from {
+    box-shadow: 0 0 10px rgba(223, 134, 160, 0.5);
+  }
+
+  to {
+    box-shadow: 0 0 35px rgba(223, 134, 160, 1);
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- FIRST PAGE -->
+    <div id="homePage" class="hero">
+
+      <div class="nav">
+        <a href="#">About Us</a>
+        <a href="#">Memories</a>
+        <a href="#">Letter</a>
+        <a href="#">Love Note</a>
+      </div>
+
+      <div class="hero-content">
+        <div>
+          <h1>Happy Birthday My Kutty Paiyan👩🏼‍❤️‍👨🏻♾️🧿</h1>
+
+          <p>
+            I made this little website only for you.
+            You are my happiness, my favourite person, and my sweetest blessing.
+          </p>
+
+          <!-- When he clicks this, date/password page appears -->
+          <button class="button" onclick="openPasswordPage()">
+            OPEN MY HEART
+          </button>
+        </div>
+
+        <div>
+          <img src="photo1.jpg" alt="our photo">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ENTER DATE / PASSWORD PAGE -->
+    <div id="passwordPage" class="password-page">
+
+      <div class="password-box">
+        <h2>Enter Our Special Day ❤️</h2>
+
+        <p>Only you know this date.</p>
+
+        <input type="text" id="passwordInput" placeholder="DD/MM/YYYY">
+
+        <button class="pink-button" onclick="checkPassword()">
+          UNLOCK MY HEART
+        </button>
+
+        <p id="wrongMessage"></p>
+      </div>
+
+    </div>
+
+    <!-- OTHER LOVE PAGES AFTER CORRECT DATE -->
+    <div id="lovePages" class="love-page">
+
+      <section id="about" class="two-box">
+
+        <div class="card">
+          <h2>Our Sweet Story</h2>
+
+          <p>
+            “Inda kalathula face podama insta use panura oru pulaya…”
+            This message turned our life so beautiful🥰.
+          </p>
+
+          <p>
+            From the day our love started, every moment became special.I hope our love is never defined only by the words “I love you,” but by everything we do to make those words true.
+
+I hope we always remember that love is found in the little things — in listening when one of us needs to be heard, understanding instead of judging, offering support without being asked, caring for each other in quiet ways, and always making time for one another😘.
+
+I don’t want our love to exist only on anniversaries, special occasions, or special days. I want it to live in the ordinary moments too — in morning check-ins, late-night conversations, shared laughter, small comforts, and simply being there for each other.
+
+Let’s never stop showing our love through our actions — in the way we care, the way we stay, and the way we choose each other every single day. That is what gives those words their true meaning🦋.
+
+I hope that every day, in ways both big and small, we make each other feel loved without ever having to question it💋.
+
+Because I believe the most beautiful love isn’t just spoken🌹.
+
+It’s lived. ❤️
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="photo2.jpg" alt="love photo">
+
+          <h2>Since 01/01/2025</h2>
+
+          <p>
+            The day our love story began. A date I will always keep close to my heart.
+          </p>
+        </div>
+
+      </section>
+
+      <section class="center-title">
+        <h2>Perfect for you because...</h2>
+        <p>You are my home, my smile, my comfort, and my forever person.</p>
+      </section>
+
+      <section class="reasons">
+
+        <div class="reason">
+          <img src="photo3.jpg" alt="memory">
+          <h3>You make me smile</h3>
+          <p>Even a small message from you can make my whole day better.</p>
+        </div>
+
+        <div class="reason">
+          <img src="photo4.jpg" alt="memory">
+          <h3>You care for me</h3>
+          <p>Your love feels warm, safe, and peaceful.</p>
+        </div>
+
+        <div class="reason">
+          <img src="photo5.jpg" alt="memory">
+          <h3>You are special</h3>
+          <p>There is no one like you in this world.</p>
+        </div>
+
+        <div class="reason">
+          <img src="photo6.jpg" alt="memory">
+          <h3>You are my forever</h3>
+          <p>I want more birthdays, more memories, and more love with you.</p>
+        </div>
+
+      </section>
+
+      <section id="memories">
+
+        <h2 style="font-family: Georgia, serif; font-size: 45px; color:#d77f99;">
+          Our Beautiful Memories
+        </h2>
+
+        <div class="memory-grid">
+          <img src="photo7.jpg" alt="memory">
+          <img src="photo8.jpg" alt="memory">
+          <img src="photo9.jpg" alt="memory">
+          <img src="photo10.jpg" alt="memory">
+        </div>
+
+      </section>
+
+      <section class="birthday">
+
+        <h2>Happy Birthday My Husband❤️</h2>
+
+        <p>
+          I hope your birthday is as beautiful as your heart.
+          You deserve all the love, happiness, success, and peace in this world.
+        </p>
+
+      </section>
+
+      <section class="love-question">
+
+        <h2>Do you love me?</h2>
+
+        <button onclick="loveAnswer()">Yes ❤️</button>
+        <button onclick="loveAnswer()">Always ❤️</button>
+
+        <p id="loveReply"></p>
+
+      </section>
+
+      <section id="letter">
+
+        <h2 style="font-family: Georgia, serif; font-size: 45px; color:#d77f99;">
+          A Letter For You
+        </h2>
+
+        <div class="letter">
+          <p>My love,</p>
+
+          <p>
+           I still don’t know when you became this important to me.
+Maybe it was through small conversations, silent care, or the comfort I felt whenever you were around.
+
+You came into my life without any promises, without any expectations… but today, your presence means everything to me.
+
+There is something strange about my days now.
+If you don’t talk to me even for one day, that entire day feels incomplete.
+
+No matter how much I smile outside, inside there is always an emptiness waiting for “your words”. 🥺
+
+I don’t need expensive moments or grand memories.
+I only want simple things —
+
+💌 to meet you every day,
+💌 to see your smile,
+💌 to hear your voice,
+💌 and to feel that you are still part of my life.
+
+Some dates become special not because of calendars…
+but because of feelings attached to them.
+
+For me,1st Januaryy and 31st December are not just dates anymore.
+They became unforgettable chapters of my life because somewhere in those moments, you became my happiness.💞
+
+Sometimes I wonder…
+Did you ever realize how important you are to me?
+
+Because unknowingly, you became the peace my heart searches for every single day.
+
+Even if life changes many things tomorrow, these feelings will remain honest forever.
+            Thank you for loving me, caring for me, making me laugh,
+            and being the most beautiful part of my life.
+         
+            On your birthday, I just want to remind you that you are deeply loved.
+            I am so lucky to have you.
+          </p>
+
+          <p>
+            Happy birthday, my husband❤️💋.
+            I love you forever.
+           — Always Yours ❤️,
+           Carkulla iruka kutty pulla tadaaaaaaaaa
+          </p>
+        </div>
+
+      </section>
+
+      <section id="contact" class="contact">
+
+        <div class="contact-box">
+
+          <div>
+            <h2>Send Love</h2>
+            <p>Write a small birthday wish here.</p>
+
+            <input type="text" placeholder="Your name">
+            <input type="text" placeholder="Your birthday wish">
+            <textarea rows="4" placeholder="Write something sweet..."></textarea>
+
+            <button class="pink-button" onclick="showMessage()">
+              SEND LOVE
+            </button>
+
+            <p id="message"></p>
+          </div>
+
+          <div>
+            <img src="photo11.jpg" alt="love">
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="faq">
+
+        <h2>Little Love Questions</h2>
+
+        <div class="question">When did our love start? — 01/01/2025</div>
+        <div class="question">Who is my favourite person? — You</div>
+        <div class="question">How much do I love you? — More than words</div>
+        <div class="question">Will I choose you again? — Always</div>
+
+      </section>
+
+     <footer class="animated-footer">
+  <div class="heart-row">
+    <span>❤️</span>
+    <span>💗</span>
+    <span>💕</span>
+    <span>💖</span>
+    <span>❤️</span>
+  </div>
+
+  <h2>Made With Love Only For You</h2>
+  <p>Every word, every picture, and every little detail is made from my heart.</p>
+
+  <h3>Forever Yours Kutty Pulla❤️</h3>
+
+  <div class="floating-hearts">
+    <span>❤️</span>
+    <span>💕</span>
+    <span>💗</span>
+    <span>💖</span>
+    <span>❤️</span>
+  </div>
+</footer>
+
+    </div>
+
+  </div>
+
+  <script>
+    function openPasswordPage() {
+      document.getElementById("homePage").style.display = "none";
+      document.getElementById("passwordPage").style.display = "flex";
+      window.scrollTo(0, 0);
+    }
+
+    function checkPassword() {
+      var password = document.getElementById("passwordInput").value;
+
+      if (password === "01/01/2025") {
+        document.getElementById("passwordPage").style.display = "none";
+        document.getElementById("lovePages").style.display = "block";
+        window.scrollTo(0, 0);
+      } else {
+        document.getElementById("wrongMessage").innerHTML =
+          "Oops! Wrong date Kannukutty 😭 Try our special day!";
+      }
+    }
+
+    function loveAnswer() {
+      document.getElementById("loveReply").innerHTML =
+        "I knew it hehe ❤️ I love you more!";
+    }
+
+    function showMessage() {
+      document.getElementById("message").innerHTML =
+        "Your love note has been sent to my heart ❤️";
+    }
+  </script>
+
+</body>
+</html>
